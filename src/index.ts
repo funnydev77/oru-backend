@@ -2,10 +2,18 @@
 import express, { Request, Response, NextFunction } from 'express';
 import multer from 'multer';
 import path from 'path';
+import cors from 'cors';
+
 import fs from 'fs';
 import { processDiagnosticData } from './services/diagnosticService';
 
 const app = express();
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: false
+}));
+app.use(express.json());
+
 const port = 5000;
 
 // Ensure the uploads directory exists
