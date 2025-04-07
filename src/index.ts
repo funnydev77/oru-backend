@@ -9,8 +9,7 @@ import { processDiagnosticData } from './services/diagnosticService';
 
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: false
+    origin: '*'
 }));
 app.use(express.json());
 
