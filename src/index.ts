@@ -71,6 +71,15 @@ app.get('/upload-oru', (req: MulterRequest, res: Response, next: NextFunction) =
     }
 });
 
+app.get('/', (req: MulterRequest, res: Response, next: NextFunction) => {
+    try {
+        res.send('hello!');
+    } catch (error) {
+        console.error("Error processing ORU file:", error);
+        next(error);
+    }
+});
+
 // Basic Error Handling Middleware (add after all routes)
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     console.error(err.stack);
